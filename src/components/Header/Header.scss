@@ -1,0 +1,61 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+}
+
+.nav {
+    .nav__link {
+        font-weight: normal;
+        font-size: 18px;
+        color: #474747;
+        transition: all .33s;
+        cursor: pointer;
+
+        &:hover {
+            color: #8CC554;
+            text-decoration: none;
+        }
+
+    }
+
+}
+
+.btn {
+    display: inline-block;
+    background: none !important;
+    color: #474747 !important;
+    border: none !important;
+    font-size: 18px;
+    border-radius: 13px !important;  
+    color: white;
+  
+    &-green {
+        background: #8CC554 !important;
+        font-style: normal;
+        font-weight: normal;
+        color: white !important;
+  
+        &:hover {
+            color: white;
+            text-decoration: none;
+        }
+    }
+  
+    
+  }
+
+.line {
+    position: relative;
+
+    &:before {
+        content: url("../../assets/images/line.svg");
+        position: absolute;
+        top: -20%;
+        left: 35%;
+        display: inline-block;
+
+    }
+}
