@@ -1,5 +1,20 @@
-.choice {
+.sign h3 {
+    font-weight: normal;
+    font-size: 35px;
+}
+
+.choice-var {
     background: #FFFFFF;
     box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.08);
     border-radius: 10px;
+    padding: 50px 10px;
+}
+
+input[type=text],
+input[type=number],
+input[type=password]{
+    background: #FFFFFF;
+    box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.08);
+    border-radius: 13px;
+    padding: 10px 30px;
 }

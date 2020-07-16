@@ -130,7 +130,7 @@ export default class Intro extends React.Component {
                                 <div className="text-center choice-block">
                                     <p className="">
                                         Ищите проверенных специалистов или выгодные заказы с помощью сервиса “Название”
-                                </p>
+                                    </p>
 
                                     <div className="mt-5 d-flex justify-content-center">
                                         <a href="#" className="btn-white d-inline-block mr-5">
