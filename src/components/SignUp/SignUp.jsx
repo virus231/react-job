@@ -1,9 +1,12 @@
 import React from 'react'
 import { Grid, Row, Col, Container, Navbar, Dropdown, Jumbotron, Button } from 'react-bootstrap';
-import { Formik, Field, Form, ErrorMessage } from 'formik'
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as yup from 'yup'
 
 import './SignUp.scss';
+
+import google from "../../assets/images/google.svg";
+import facebook from "../../assets/images/facebook.svg";
 
 
 
@@ -27,11 +30,11 @@ const SignUp = () => {
             .required("Surname is required")
             .max(30)
             .min(3),
-        //     ,
         password: yup.string().required("Must be required").max(28).min(8),
         repassword: yup.string().required("Not must be empty").test('passwords-match', 'Passwords must match ya fool', function (value) {
             return this.parent.password === value;
-        })
+        }),
+        acceptTerms: yup.bool().oneOf([true], 'Accept Terms & Conditions is required')
 
     })
 
@@ -56,17 +59,17 @@ const SignUp = () => {
                                 surname: "",
                                 number: "",
                                 password: "",
-                                repassword: ""
+                                repassword: "",
+                                acceptTerms: false
                             }}
                             validationSchema={ValidationSchema}
-                            onSubmit={({ setSubmitting }) => {
-                                alert("Form is validated! Submitting the form...");
-                                setSubmitting(false);
+                            onSubmit={fields => {
+                                alert('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
                             }}
 
                         >
 
-                            {({ touched, errors, isSubmitting }) => (
+                            {({ touched, errors, status, isSubmitting }) => (
                                 <Form className="w-100 d-flex flex-column justify-content-around">
                                     <div className="choice-var w-100 d-flex justify-content-around">
                                         <label>
@@ -101,83 +104,115 @@ const SignUp = () => {
 
                                     </div>
 
-                                    <div className="form-group">
-                                        <h3 className="my-3">
-                                            Регистрация
-                                        </h3>
-                                        <label htmlFor="name"> Введите ваше имя*</label>
-                                        <Field
-                                            type="text"
-                                            name="name"
-                                            placeholder="Иван"
-                                            className={`form-control ${
-                                                touched.name && errors.name ? "is-invalid" : ""
-                                                }`}
-                                        />
-                                        <ErrorMessage
-                                            component="div"
-                                            name="name"
-                                            className="invalid-feedback"
-                                        />
+                                    <h3 className="my-3">
+                                        Регистрация
+                                    </h3>
+                                    <div className="form-group d-flex justify-content-around">
+                                        <div className="left">
+                                            <label htmlFor="name"> Введите ваше имя*</label>
+                                            <Field
+                                                type="text"
+                                                name="name"
+                                                placeholder="Иван"
+                                                className={`form-control ${
+                                                    touched.name && errors.name ? "is-invalid" : ""
+                                                    }`}
+                                            />
+                                            <ErrorMessage
+                                                component="div"
+                                                name="name"
+                                                className="invalid-feedback"
+                                            />
 
-                                        <label htmlFor="surname">Введите вашу фамилию*</label>
-                                        <Field
-                                            type="text"
-                                            name="surname"
-                                            placeholder="Петров"
-                                            className={`form-control ${
-                                                touched.surname && errors.surname ? "is-invalid" : ""
-                                                }`}
-                                        />
-                                        <ErrorMessage
-                                            component="div"
-                                            name="surname"
-                                            className="invalid-feedback"
-                                        />
+                                            <label htmlFor="surname">Введите вашу фамилию*</label>
+                                            <Field
+                                                type="text"
+                                                name="surname"
+                                                placeholder="Петров"
+                                                className={`form-control ${
+                                                    touched.surname && errors.surname ? "is-invalid" : ""
+                                                    }`}
+                                            />
+                                            <ErrorMessage
+                                                component="div"
+                                                name="surname"
+                                                className="invalid-feedback"
+                                            />
 
-                                        <label htmlFor="number">Введите ваш номер телефона*</label>
-                                        <Field
-                                            type="number"
-                                            name="number"
-                                            placeholder="+380123456789 "
-                                            className={`form-control ${
-                                                touched.number && errors.number ? "is-invalid" : ""
-                                                }`}
-                                        />
-                                        <ErrorMessage
-                                            component="div"
-                                            name="number"
-                                            className="invalid-feedback"
-                                        />
+                                            <label htmlFor="number">Введите ваш номер телефона*</label>
+                                            <Field
+                                                type="number"
+                                                name="number"
+                                                placeholder="+380123456789 "
+                                                className={`form-control ${
+                                                    touched.number && errors.number ? "is-invalid" : ""
+                                                    }`}
+                                            />
+                                            <ErrorMessage
+                                                component="div"
+                                                name="number"
+                                                className="invalid-feedback"
+                                            />
+                                        </div>
 
-                                        <label htmlFor="password"> Введите ваш пароль*</label>
-                                        <Field
-                                            type="password"
-                                            name="password"
-                                            // placeholder="+380123456789 "
-                                            className={`form-control ${
-                                                touched.password && errors.password ? "is-invalid" : ""
-                                                }`}
-                                        />
-                                        <ErrorMessage
-                                            component="div"
-                                            name="password"
-                                            className="invalid-feedback"
-                                        />
-                                        <Field
-                                            type="password"
-                                            name="repassword"
-                                            // placeholder="+380123456789 "
-                                            className={`form-control ${
-                                                touched.repassword && errors.repassword ? "is-invalid" : ""
-                                                }`}
-                                        />
-                                        <ErrorMessage
-                                            component="div"
-                                            name="repassword"
-                                            className="invalid-feedback"
-                                        />
+                                        <div className="right">
+                                            <label htmlFor="password"> Введите ваш пароль*</label>
+                                            <Field
+                                                type="password"
+                                                name="password"
+                                                className={`form-control ${
+                                                    touched.password && errors.password ? "is-invalid" : ""
+                                                    }`}
+                                            />
+                                            <ErrorMessage
+                                                component="div"
+                                                name="password"
+                                                className="invalid-feedback"
+                                            />
+
+                                            <Field
+                                                type="password"
+                                                name="repassword"
+                                                className={`form-control ${
+                                                    touched.repassword && errors.repassword ? "is-invalid" : ""
+                                                    }`}
+                                            />
+                                            <ErrorMessage
+                                                component="div"
+                                                name="repassword"
+                                                className="invalid-feedback"
+                                            />
+
+                                            <Field
+                                                type="checkbox"
+                                                name="acceptTerms"
+                                                id="acceptTerms"
+                                                className={'form-check-input ' + (errors.acceptTerms && touched.acceptTerms ? ' is-invalid' : '')} />
+                                            <label
+                                                htmlFor="acceptTerms"
+                                                className="form-check-label">
+                                                Accept Terms & Conditions
+                                            </label>
+                                            <ErrorMessage name="acceptTerms" component="div" className="invalid-feedback" />
+                                            <div>
+                                                <button type="submit" className="btn btn-green px-5 py-3">
+                                                    Опубликовать 
+                                                </button>
+                                            </div>
+                                            <h3>
+                                                Войти с помощью:
+                                            </h3>
+                                            <div className="d-flex justify-content-around">
+                                                <a href="#">
+                                                    <img src={google} alt="Google" />
+                                                </a>
+                                                <a href="#">
+                                                    <img src={facebook} alt="Facebook" />
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
+
 
                                 </Form>
                             )}
