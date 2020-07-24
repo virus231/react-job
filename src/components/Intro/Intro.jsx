@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Row, Col, Container, Navbar, Dropdown, Jumbotron, Button } from 'react-bootstrap';
+import { Grid, Row, Col, Container, Navbar, Dropdown, Jumbotron, Button, NavLink } from 'react-bootstrap';
 import Slider from "react-slick";
 
 import './Intro.scss';
@@ -25,18 +25,26 @@ export default class Intro extends React.Component {
             cssEase: "linear"
         };
 
+        const sliderItem = [
+            { name: 'Василий Пупкин', about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Por sit amet, consectetur adipiscing elit. Phasellus blandihasellus blandit risus et elit venenatis hendrerit...', },
+            { name: 'No Name', about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Por sit amet, consectetur adipiscing elit. Phasellus blandihasellus blandit risus et elit venenatis hendrerit...', },
+            { name: 'Vandal01', about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Por sit amet, consectetur adipiscing elit. Phasellus blandihasellus blandit risus et elit venenatis hendrerit...', },
+            { name: 'Parazit', about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Por sit amet, consectetur adipiscing elit. Phasellus blandihasellus blandit risus et elit venenatis hendrerit...', },
+            { name: 'Perec', about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Por sit amet, consectetur adipiscing elit. Phasellus blandihasellus blandit risus et elit venenatis hendrerit...', }
+        ]
+
 
         return (
-            <>
+            <div>
                 <section className="intro pt-5">
                     <Container fluid>
                         <Row className="mt-1">
                             <Col lg="4" className="mt-5 offset-lg-2">
                                 <Jumbotron className="mt-5 intro-block text-left">
                                     <h1 className="mb-5">
-                                        <a>
+                                        <NavLink to='/'>
                                             <img src={introLogo} alt="Logo Intro" />
-                                        </a>
+                                        </NavLink>
                                     </h1>
                                     <p className="intro-block__subh text-center ">
                                         Онлайн-сервис заказа услуг
@@ -159,210 +167,44 @@ export default class Intro extends React.Component {
                         <Row className="mt-5 d-flex justify-content-center">
                             <Col lg="11">
                                 <Slider {...settings}>
-                                    <div>
-                                        <div className="slider-item">
-                                            <div className="d-flex mb-5">
-                                                <img src={person1} alt="person" />
-                                                <div className="ml-3">
-                                                    <span>
-                                                        Василий Пупкин 
-                                                    </span>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Por sit amet, consectetur adipiscing elit. Phasellus blandihasellus blandit risus et elit venenatis hendrerit...
-                                                    </p>
+                                    {
+                                        sliderItem.map((item, index) => (
+                                            <div key={`${item}_${index}`}>
+                                                <div className="slider-item">
+                                                    <div className="d-flex mb-5">
+                                                        <img src={person1} alt="person" />
+                                                        <div className="ml-3">
+                                                            <span>
+                                                                {item.name}
+                                                            </span>
+                                                            <p>
+                                                                {item.about}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <hr />
+                                                    <div className="d-flex justify-content-around">
+                                                        <div className="d-flex flex-column align-items-center">
+                                                            <p>
+                                                                Всего отзывов
+                                                            </p>
+                                                            <span>
+                                                                0
+                                                            </span>
+                                                        </div>
+                                                        <div className="d-flex flex-column align-items-center">
+                                                            <p>
+                                                                Всего отзывов
+                                                            </p>
+                                                            <span>
+                                                                0
+                                                            </span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <hr />
-                                            <div className="d-flex justify-content-around">
-                                                <div className="d-flex flex-column align-items-center">
-                                                    <p>
-                                                        Всего отзывов
-                                                    </p>
-                                                    <span>
-                                                        0
-                                                    </span>
-                                                </div>
-                                                <div className="d-flex flex-column align-items-center">
-                                                    <p>
-                                                        Всего отзывов
-                                                    </p>
-                                                    <span>
-                                                        0
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="slider-item">
-                                            <div className="d-flex mb-5">
-                                                <img src={person1} alt="person" />
-                                                <div className="ml-3">
-                                                    <span>
-                                                        Василий Пупкин 
-                                                    </span>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Por sit amet, consectetur adipiscing elit. Phasellus blandihasellus blandit risus et elit venenatis hendrerit...
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <hr />
-                                            <div className="d-flex justify-content-around">
-                                                <div className="d-flex flex-column align-items-center">
-                                                    <p>
-                                                        Всего отзывов
-                                                    </p>
-                                                    <span>
-                                                        0
-                                                    </span>
-                                                </div>
-                                                <div className="d-flex flex-column align-items-center">
-                                                    <p>
-                                                        Всего отзывов
-                                                    </p>
-                                                    <span>
-                                                        0
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="slider-item">
-                                            <div className="d-flex mb-5">
-                                                <img src={person1} alt="person" />
-                                                <div className="ml-3">
-                                                    <span>
-                                                        Василий Пупкин 
-                                                    </span>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Por sit amet, consectetur adipiscing elit. Phasellus blandihasellus blandit risus et elit venenatis hendrerit...
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <hr />
-                                            <div className="d-flex justify-content-around">
-                                                <div className="d-flex flex-column align-items-center">
-                                                    <p>
-                                                        Всего отзывов
-                                                    </p>
-                                                    <span>
-                                                        0
-                                                    </span>
-                                                </div>
-                                                <div className="d-flex flex-column align-items-center">
-                                                    <p>
-                                                        Всего отзывов
-                                                    </p>
-                                                    <span>
-                                                        0
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="slider-item">
-                                            <div className="d-flex mb-5">
-                                                <img src={person1} alt="person" />
-                                                <div className="ml-3">
-                                                    <span>
-                                                        Василий Пупкин 
-                                                    </span>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Por sit amet, consectetur adipiscing elit. Phasellus blandihasellus blandit risus et elit venenatis hendrerit...
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <hr />
-                                            <div className="d-flex justify-content-around">
-                                                <div className="d-flex flex-column align-items-center">
-                                                    <p>
-                                                        Всего отзывов
-                                                    </p>
-                                                    <span>
-                                                        0
-                                                    </span>
-                                                </div>
-                                                <div className="d-flex flex-column align-items-center">
-                                                    <p>
-                                                        Всего отзывов
-                                                    </p>
-                                                    <span>
-                                                        0
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="slider-item">
-                                            <div className="d-flex mb-5">
-                                                <img src={person1} alt="person" />
-                                                <div className="ml-3">
-                                                    <span>
-                                                        Василий Пупкин 
-                                                    </span>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Por sit amet, consectetur adipiscing elit. Phasellus blandihasellus blandit risus et elit venenatis hendrerit...
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <hr />
-                                            <div className="d-flex justify-content-around">
-                                                <div className="d-flex flex-column align-items-center">
-                                                    <p>
-                                                        Всего отзывов
-                                                    </p>
-                                                    <span>
-                                                        0
-                                                    </span>
-                                                </div>
-                                                <div className="d-flex flex-column align-items-center">
-                                                    <p>
-                                                        Всего отзывов
-                                                    </p>
-                                                    <span>
-                                                        0
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="slider-item">
-                                            <div className="d-flex mb-5">
-                                                <img src={person1} alt="person" />
-                                                <div className="ml-3">
-                                                    <span>
-                                                        Василий Пупкин 
-                                                    </span>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Por sit amet, consectetur adipiscing elit. Phasellus blandihasellus blandit risus et elit venenatis hendrerit...
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <hr />
-                                            <div className="d-flex justify-content-around">
-                                                <div className="d-flex flex-column align-items-center">
-                                                    <p>
-                                                        Всего отзывов
-                                                    </p>
-                                                    <span>
-                                                        0
-                                                    </span>
-                                                </div>
-                                                <div className="d-flex flex-column align-items-center">
-                                                    <p>
-                                                        Всего отзывов
-                                                    </p>
-                                                    <span>
-                                                        0
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        ))
+                                    }
                                 </Slider>
                             </Col>
                         </Row>
@@ -374,7 +216,7 @@ export default class Intro extends React.Component {
                         <Row className="text-center mt-5">
                             <Col lg="12" className="mt-5">
                                 <h3 className="mt-5">
-                                    Напишите нам! 
+                                    Напишите нам!
                                 </h3>
                             </Col>
                         </Row>
@@ -394,9 +236,8 @@ export default class Intro extends React.Component {
                         </Row>
                     </Container>
                 </section>
+            </div>
 
-                
-            </>
         );
     };
 }

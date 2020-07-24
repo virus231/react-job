@@ -1,0 +1,30 @@
+.profile {
+    height: 70vh;
+}
+
+.special {
+    &-title {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    
+
+    &-item {
+        background: #8CC554;
+        border-radius: 10px;
+        color: white;
+    }
+
+    &-title {
+        font-weight: bold;
+        font-size: 18px;
+    }
+}
+
+.offer {
+    background: #FFFFFF;
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+}

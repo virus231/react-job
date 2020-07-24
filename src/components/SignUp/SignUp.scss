@@ -1,3 +1,11 @@
+.login {
+    background: url("../../assets/images/bg-log.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    // height: 90vh;
+    background-position-y: 10%;
+}
+
 .sign h3 {
     font-weight: normal;
     font-size: 35px;
@@ -17,4 +25,11 @@ input[type=password]{
     box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.08);
     border-radius: 13px;
     padding: 10px 30px;
+}
+
+.social {
+    a {
+        background-color: white;
+        border-radius: 15px;
+    }
 }

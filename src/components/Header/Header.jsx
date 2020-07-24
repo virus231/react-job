@@ -18,7 +18,7 @@ const Header = () => {
             { id: 1, link: "Главная", path: '/' },
             { id: 2, link: "Найти исполнителя", path: '/as'  },
             { id: 3, link: "Заказать", path: '/qwe'  },
-            { id: 4, link: "Мой профиль",path: '/qwt'  }
+            { id: 4, link: "Мой профиль",path: '/profile'  }
         ];
     
 
@@ -37,9 +37,11 @@ const Header = () => {
 
                     <Col lg="5" className="">
                         <nav className="nav d-flex justify-content-around">
-                            {links.map(item => (
-                                <NavLink key={item.id} className="nav__link" to={item.path}> {item.link} </NavLink>
-                            ))}
+                            {
+                                links.map(item => (
+                                    <NavLink key={item.id} className="nav__link" to={item.path}> {item.link} </NavLink>
+                                ))
+                            }
                         </nav>
                     </Col>
 

@@ -8,7 +8,7 @@ import footerSpan from "../../assets/images/footer-span.svg"
 
 import "./Footer.scss"
 
-export default class Footer extends React.Component {
+ class Footer extends React.Component {
     render() {
         return (
 
@@ -101,3 +101,5 @@ export default class Footer extends React.Component {
         )
     }
 }
+
+export default Footer;

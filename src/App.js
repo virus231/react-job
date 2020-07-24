@@ -3,11 +3,8 @@ import {Route, BrowserRouter, Switch} from "react-router-dom";
 
 import './App.scss';
 
-import Header  from "./components/Header/Header";
-import Intro from "./components/Intro/Intro";
-import LogIn from "./components/LogIn/LogIn";
-import SignUp from "./components/SignUp/SignUp";
-import Footer from "./components/Footer/Footer";
+import {Header, Intro, Profile, LogIn, SignUp, Footer} from './components'
+
 
 
 
@@ -24,6 +21,8 @@ const App = () => {
             <Route path={'/'} exact component={Intro} />
             <Route path={"/login"} component={LogIn} />
             <Route path={"/signup"} component={SignUp} />
+            <Route path={"/profile"} component={Profile} />
+
           </Switch>
         </div>
         <Footer/>
